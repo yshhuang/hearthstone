@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{title}}!
+  </h1>
+</div>
+
+<ul class="cards">
+  <li *ngFor="let card of cards">
+    <span class="badge">{{card.cardId}}</span>
+    <span>{{card.name}}</span>
+  </li>
+</ul>
+
+<div>
+  <label>卡牌名称:</label> <input #cardName />
+  <label>消耗水晶:</label> <input #expense />
+  <label>攻击力:</label> <input #attack />
+  <label>生命值:</label> <input #healthPoint />
+  <label>图片链接:</label> <input #imgPath />
+  <button (click)="add(cardName.value, expense.value, attack.value, 
+  healthPoint.value, imgPath.value); cardName.value=''">
+    Add
+  </button>
+</div>
