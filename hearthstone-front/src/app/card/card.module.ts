@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { CardListComponent } from './cardList.component';
+import { CardAddComponent } from './card-add.component';
 import { CardService } from './card.service';
 
 @NgModule({
@@ -13,7 +14,9 @@ import { CardService } from './card.service';
         FormsModule,
     ],
     providers: [CardService],
-    declarations: []
+    declarations: [
+        CardListComponent,
+        CardAddComponent]
 })
 
 export class CardModule { }
