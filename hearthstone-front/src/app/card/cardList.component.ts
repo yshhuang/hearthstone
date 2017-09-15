@@ -11,6 +11,9 @@ import { CardService } from './card.service';
 
 export class CardListComponent implements OnInit {
     title = 'hearthstone';
+    total = 0;
+    pageNumber = 1;
+    pageSize = 1;
     cards: Card[];
     card: Card = new Card;
 
@@ -24,8 +27,11 @@ export class CardListComponent implements OnInit {
 
     getCards(): void {
         this.cardService
-            .getCards(1, 100)
-            .then(cards => this.cards = cards);
+            .getCards(this.pageNumber, this.pageSize)
+            .then(result => {
+                this.cards = result.cards;
+                this.total = result.total;
+            });
     }
 
     add(): void {

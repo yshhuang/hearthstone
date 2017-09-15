@@ -4,3 +4,9 @@ h1 {
     font-size: 250%;
     text-align: center;
 }
+
+a {
+    color: #f00;
+    font-size: 150%;
+    background-color: #005566;
+}

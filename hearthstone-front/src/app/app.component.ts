@@ -7,6 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'hearthstone';
+  title = '炉石传说卡牌库';
 
 }

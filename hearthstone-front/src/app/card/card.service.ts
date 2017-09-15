@@ -19,9 +19,9 @@ export class CardService {
             .then(res => res.json().data as Card);
     }
 
-    getCards(pageNumber: number, pageSize: number): Promise<Card[]> {
+    getCards(pageNumber: number, pageSize: number): Promise<any> {
         return this.http.get(this.cardUrl + '?pageNumber=' + pageNumber + '&pageSize=' + pageSize)
             .toPromise()
-            .then(response => response.json().data as Card[]);
+            .then(response => response.json().data);
     }
 }

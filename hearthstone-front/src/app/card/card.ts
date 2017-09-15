@@ -3,6 +3,6 @@ export class Card {
     name: string;
     expense: number;
     attack: number;
-    health: number;
+    healthPoint: number;
     imgPath: string;
 }
