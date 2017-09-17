@@ -1,12 +1,23 @@
 h1 {
-    color: #369;
+    color: rgba(255, 51, 0, 0.68);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 250%;
     text-align: center;
 }
 
-a {
-    color: #f00;
-    font-size: 150%;
-    background-color: #005566;
+nav li {
+    color: #FFEE00;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 100%;
+    list-style-type:none;
+    border-style: outset;
+}
+
+nav {
+    line-height:30px;
+    background-color:rgba(17, 147, 199, 0.9);
+    height:320px;
+    width:120px;
+    float:left;
+    padding:10px;	      
 }

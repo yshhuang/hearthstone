@@ -6,16 +6,16 @@ import { CardService } from './card.service';
 @Component({
     selector: 'card-list',
     templateUrl: './cardList.component.html',
-    // styleUrls: ['./app.component.css']
+    styleUrls: ['./card-list.component.css']
 })
 
 export class CardListComponent implements OnInit {
     title = 'hearthstone';
     total = 0;
     pageNumber = 1;
-    pageSize = 1;
+    pageSize = 5;
     cards: Card[];
-    card: Card = new Card;
+    selectCard: Card = new Card;
 
     constructor(
         private cardService: CardService
@@ -30,12 +30,12 @@ export class CardListComponent implements OnInit {
             .getCards(this.pageNumber, this.pageSize)
             .then(result => {
                 this.cards = result.cards;
+                this.selectCard = this.cards[0];
                 this.total = result.total;
             });
     }
 
-    add(): void {
-        console.log(this.card);
-        this.cardService.create(this.card);
+    select(card: Card): void {
+        this.selectCard = card;
     }
 }

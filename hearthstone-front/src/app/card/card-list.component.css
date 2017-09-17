@@ -1,0 +1,15 @@
+#table {
+    float: left;
+    background-color: #00CCFF;
+    height: 300px;
+    padding: 20px;
+}
+
+table, th, td {
+    border: 1px solid blue;
+}
+
+#image {
+    float: right;
+    padding-right: 80px;
+}

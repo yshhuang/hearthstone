@@ -1,0 +1,39 @@
+div {
+    float: left;
+    padding-left: 30px;
+}
+
+dl {
+    border-style: solid;
+    border-width: thin;
+    border-color: #32076B;
+}
+
+li {
+    list-style-type:none;
+    line-height:30px;
+    padding:10px;
+}
+
+li label {
+    color: #E01111;
+    padding-right:15px;
+    font-size: 120%; 
+    display:inline-block;
+   
+}
+
+li input {
+   height: 20px;
+   width: 250px;
+   float: right;
+}
+
+button {
+    font-size: 250%;
+    color: blue;
+    background-color: yellowgreen;
+    height:60px;
+    width:100px;
+    float: right; 
+}

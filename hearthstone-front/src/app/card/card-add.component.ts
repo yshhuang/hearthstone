@@ -6,7 +6,7 @@ import { CardService } from './card.service';
 @Component({
     selector: 'card-list',
     templateUrl: './card-add.component.html',
-    // styleUrls: ['./app.component.css']
+    styleUrls: ['./card-add.component.css']
 })
 
 export class CardAddComponent {
