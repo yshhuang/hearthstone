@@ -2,8 +2,6 @@ package com.huangyongsheng.hearthstone.controller;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,16 +14,12 @@ import com.huangyongsheng.hearthstone.pojo.dto.ResultModel;
 import com.huangyongsheng.hearthstone.pojo.dto.ResultStatus;
 import com.huangyongsheng.hearthstone.pojo.po.Card;
 import com.huangyongsheng.hearthstone.service.CardService;
-import com.huangyongsheng.hearthstone.service.TokenService;
 
 import lombok.extern.log4j.Log4j;
-import lombok.extern.log4j.Log4j2;
-
 
 @RestController("CardController")
 @RequestMapping(value = "/card")
 public @Log4j class CardController {
-	//private static Logger log = LoggerFactory.getLogger(TokenController.class);
 	@Autowired
 	CardService cardService;
 
