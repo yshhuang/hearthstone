@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.huangyongsheng</groupId>
 	<artifactId>hearthstone</artifactId>
@@ -26,6 +27,8 @@
 		<servlet.version>3.1.0</servlet.version>
 		<json-lib.version>2.4</json-lib.version>
 		<json-lib.classifier>jdk15</json-lib.classifier>
+		<lombok.version>1.16.18</lombok.version>
+		<lombok.scope>provided</lombok.scope>
 	</properties>
 
 	<dependencies>
@@ -139,6 +142,14 @@
 			<artifactId>json-lib</artifactId>
 			<version>${json-lib.version}</version>
 			<classifier>${json-lib.classifier}</classifier>
+		</dependency>
+
+		<!-- lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 get,set,tostring...-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>${lombok.scope}</scope>
 		</dependency>
 
 	</dependencies>
