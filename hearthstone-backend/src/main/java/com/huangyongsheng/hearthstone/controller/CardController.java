@@ -18,16 +18,20 @@ import com.huangyongsheng.hearthstone.pojo.po.Card;
 import com.huangyongsheng.hearthstone.service.CardService;
 import com.huangyongsheng.hearthstone.service.TokenService;
 
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
+
+
 @RestController("CardController")
 @RequestMapping(value = "/card")
-public class CardController {
-	private static Logger logger = LoggerFactory.getLogger(TokenController.class);
+public @Log4j class CardController {
+	//private static Logger log = LoggerFactory.getLogger(TokenController.class);
 	@Autowired
 	CardService cardService;
 
 	@PostMapping()
 	public ResultModel addCard(@RequestBody Card card) {
-		logger.info("card/add");
+		log.info("card/add");
 		System.out.println(card.toString());
 		Long cardId = cardService.addCard(card);
 		if (cardId != null) {
@@ -39,7 +43,7 @@ public class CardController {
 
 	@GetMapping()
 	public ResultModel getCards(@RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
-		logger.info("card/get");
+		log.info("card/get");
 		List<Card> cards = cardService.getCards(pageNumber, pageSize);
 		if (cards != null) {
 			return ResultModel.ok(ResultStatus.OK, cards);

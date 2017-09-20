@@ -27,18 +27,11 @@
 		<servlet.version>3.1.0</servlet.version>
 		<json-lib.version>2.4</json-lib.version>
 		<json-lib.classifier>jdk15</json-lib.classifier>
+		<lombok.version>1.16.18</lombok.version>
+		<lombok.scope>provided</lombok.scope>
 	</properties>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.16.18</version>
-			<scope>provided</scope>
-		</dependency>
-
-
 		<!-- spring核心包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -151,6 +144,14 @@
 			<classifier>${json-lib.classifier}</classifier>
 		</dependency>
 
+		<!-- lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 get,set,tostring...-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>${lombok.scope}</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -166,22 +167,6 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-			
-			<plugin>
-           <groupId>org.projectlombok</groupId>
-           <artifactId>lombok-maven-plugin</artifactId>
-           <version>1.16.8.0</version>
-           <executions>
-               <execution>
-                   <phase>generate-sources</phase>
-                   <goals>
-                       <goal>delombok</goal>
-                   </goals>
-               </execution>
-           </executions>
-       </plugin>
-
-
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
