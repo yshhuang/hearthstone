@@ -8,4 +8,6 @@ public interface CardService {
 	Long addCard(Card card);
 
 	List<Card> getCards(Integer pageNumber, Integer pageSize);
+
+	Integer getTotalCard();
 }

@@ -5,53 +5,27 @@
 
 	<insert id="addCard" keyProperty="cardId">
 		INSERT INTO
-			card(name, expense, attack, health_point, img_path)
-		VALUES 
-			(#{name}, #{expense}, #{attack}, #{healthPoint}, #{imgPath})
+		card(name, expense,
+		attack, health_point, img_path)
+		VALUES
+		(#{name}, #{expense}, #{attack},
+		#{healthPoint}, #{imgPath})
 	</insert>
-
-	<delete id="deleteUser">
-		DELETE FROM
-			user
-		WHERE
-			user_id = #{userId}
-	</delete>
-
-	<update id="updateUsername">
-		UPDATE
-			user
-		SET
-			username = #{username}
-		WHERE
-			user_id = #{userId}
-	</update>
-
-	<select id="getUserById" resultType="User">
-		SELECT
-		user_id, username,
-		password, reg_date
-		FROM
-		user
-		WHERE
-		user_id = #{userId}
-	</select>
 
 	<select id="getCards" resultType="Card">
 		SELECT
-			card_id, name, expense, attack, health_point, img_path
+		card_id, name, expense,
+		attack, health_point, img_path
 		FROM
-			card
+		card
 		LIMIT
-			#{start}, #{size}
+		#{start}, #{size}
 	</select>
 
-	<select id="getUserByUsername" resultType="User">
+	<select id="getTotalCard" resultType="Integer">
 		SELECT
-		user_id,
-		username, password
+		count(card_id)
 		FROM
-		user
-		WHERE
-		username = #{username}
+		card
 	</select>
 </mapper>

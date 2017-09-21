@@ -13,4 +13,6 @@ public interface CardDao {
 
 	List<Card> getCards(@Param(value = "start") Integer start, @Param(value = "size") Integer pageSize);
 
+	Integer getTotalCard();
+
 }

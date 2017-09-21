@@ -1,6 +1,8 @@
 package com.huangyongsheng.hearthstone.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,8 +41,12 @@ public @Log4j class CardController {
 	public ResultModel getCards(@RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
 		log.info("card/get");
 		List<Card> cards = cardService.getCards(pageNumber, pageSize);
+		Integer total = cardService.getTotalCard();
 		if (cards != null) {
-			return ResultModel.ok(ResultStatus.OK, cards);
+			Map<String, Object> result = new HashMap<>();
+			result.put("cards", cards);
+			result.put("total", total);
+			return ResultModel.ok(ResultStatus.OK, result);
 		} else {
 			return ResultModel.error(ResultStatus.OK);
 		}

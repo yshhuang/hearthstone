@@ -8,7 +8,7 @@ import { Card } from './card';
 @Injectable()
 export class CardService {
     private headers = new Headers({ 'Content-Type': 'application/json' });
-    private cardUrl = 'http://localhost:8080/ssm/card';  // URL to web api
+    private cardUrl = 'http://localhost:8080/hearthstone/card';  // URL to web api
 
     constructor(private http: Http) { }
 

@@ -30,7 +30,7 @@ export class CardListComponent implements OnInit {
             .getCards(this.pageNumber, this.pageSize)
             .then(result => {
                 this.cards = result.cards;
-                this.selectCard = this.cards[0];
+                this.selectCard = result.cards[0];
                 this.total = result.total;
             });
     }

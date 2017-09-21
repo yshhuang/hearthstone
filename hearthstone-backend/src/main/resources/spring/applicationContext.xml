@@ -47,4 +47,7 @@
 		<mvc:mapping path="/**" allowed-methods="*" />
 		<mvc:mapping path="/resources/**" allowed-origins="http://domain1.com" />
 	</mvc:cors>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 </beans>  

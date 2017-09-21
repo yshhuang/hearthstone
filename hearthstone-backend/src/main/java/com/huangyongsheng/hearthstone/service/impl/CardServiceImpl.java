@@ -26,4 +26,9 @@ public class CardServiceImpl implements CardService {
 		return cardDao.getCards(start, pageSize);
 	}
 
+	@Override
+	public Integer getTotalCard() {
+		return cardDao.getTotalCard();
+	}
+
 }
