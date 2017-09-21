@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,22 +29,28 @@ import lombok.extern.log4j.Log4j;
 @RestController("FileController")
 @RequestMapping(value = "/file")
 public @Log4j class FileController {
+	private final Path rootLocation = Paths.get("e:\\");;
 
 	@RequestMapping("/")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
-            RedirectAttributes redirectAttributes) {
+	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 
-        System.out.println(file.getSize());
-        redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename()
-                        + "!");
+		System.out.println(file.getSize());
 
-        return "redirect:/";
-    }
-	
-	
-	
-	
+		try {
+			if (file.isEmpty()) {
+				System.out.println("Failed to store empty file " + file.getOriginalFilename());
+			}
+			Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
+		} catch (IOException e) {
+			System.out.println("Failed to store file " + file.getOriginalFilename() + e.getMessage());
+		}
+
+		redirectAttributes.addFlashAttribute("message",
+				"You successfully uploaded " + file.getOriginalFilename() + "!");
+
+		return "redirect:/";
+	}
+
 	@PostMapping(value = "/uploadFile")
 	public String uploadFileHandler(HttpServletRequest request, HttpServletResponse response) {
 		log.info("postfile");
@@ -61,7 +70,7 @@ public @Log4j class FileController {
 				while (iterator.hasNext()) {
 					System.out.println(iterator.toString());
 					FileItemStream item = iterator.next();
-					System.out.println(item.getName()+item.getContentType()+item.toString());
+					System.out.println(item.getName() + item.getContentType() + item.toString());
 					if (item.getName() == null) {
 						System.out.println(item.toString());
 					} else {
