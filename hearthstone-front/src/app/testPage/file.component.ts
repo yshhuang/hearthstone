@@ -5,11 +5,16 @@ import { FileUploader, FileSelectDirective } from 'ng2-file-upload';
 @Component({
     selector: 'file-upload',
     templateUrl: './file.component.html',
+    styleUrls: ['./file.component.css'],
 })
 
 export class FileComponent {
     title = 'app works!';
 
     public url = 'http://localhost:8080/hearthstone/file/';
-    public uploader: FileUploader = new FileUploader({ url: this.url });
+    public uploader: FileUploader = new FileUploader(
+        {
+            url: this.url
+        }
+    );
 }

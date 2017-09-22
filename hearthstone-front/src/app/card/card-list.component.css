@@ -1,4 +1,4 @@
-#table {
+#table { /*div.class='table'*/
     float: left;
     background-color: #00CCFF;
     height: 300px;
@@ -9,7 +9,7 @@ table, th, td {
     border: 1px solid blue;
 }
 
-#image {
+#image { /*div.class='image'*/
     float: right;
     padding-right: 80px;
 }
